@@ -1,0 +1,13 @@
+{% block content %}
+<head>
+    <title>Iniciar Sessió</title>
+</head>
+<body>
+    <h2>Iniciar Sessió</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Iniciar Sessió</button>
+    </form>
+</body>
+{% endblock %}
