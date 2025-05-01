@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  db:
+    image: postgres:13a
+    container_name: dbbb
+    environment:
+      - POSTGRES_DB=ITICCC_DB
+      - POSTGRES_PASSWORD=ITICCC
+      - POSTGRES_USER=ITIC_userrr
+    ports:
+      - "2345:5432"
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin44
+    ports:
+      - "80:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ah39aziz@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: ahmed1234
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+volumes:
+  local_pgdata:
+  pgadmin-data:

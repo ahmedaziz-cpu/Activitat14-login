@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+    {% load static %}
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0e6ff;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-list li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #3a6ea5;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            background-color: #ff6600;
+        }
+
+        .nav-list a.active {
+            background-color: #ff6600;
+            color: white;
+        }
+
+        #container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(106, 76, 147, 0.15);
+            font-family: Arial, sans-serif;
+            border: 2px solid #d4c1f2;
+        }
+
+        .img-center {
+            display: block;
+            max-width: 60%;
+            height: auto;
+            margin: auto auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #6a4c93;
+        }
+
+        #container input[type="text"],
+        #container input[type="password"],
+        #container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #d4c1f2;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        #container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #8a70d6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #container button:hover {
+            background-color: #7e66c7;
+        }
+
+        #createUser {
+            float: right;
+            background-color: #f78fb3;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #createUser:hover {
+            background-color: #e27fa0;
+        }
+
+        .blue-element {
+            background-color: #90caf9;
+            color: #1a237e;
+            padding: 5px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+
+        h1, h2, h3 {
+            color: #d14d72;
+        }
+
+        .success-message {
+            background-color: #bbdefb;
+            color: #1565c0;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #90caf9;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav-list">
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'create_user' %}">Crear Usuari</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+
+    </ul>
+
+    <div id="container">
+        <!-- Imagen decorativa -->
+        <img src="https://site.educa.madrid.org/cp.mejico.madrid//wp-content/uploads/cp.mejico.madrid/2018/07/bienvenido.jpeg"
+             alt="Imagen decorativa" class="img-center">
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

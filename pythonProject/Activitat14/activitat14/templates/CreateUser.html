@@ -1,0 +1,132 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Bienvenidos</h1>
+
+<div id="container">
+    {% if success %}
+        <p class="success-message">USUARIO CREADO EXITOSAMENTE</p>
+        <div class="button-container">
+            <a href="{% url 'login' %}">
+                <button>Ir al login</button>
+            </a>
+        </div>
+    {% else %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Crear usuario</button>
+        </form>
+    {% endif %}
+</div>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    #container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    form p {
+        margin-bottom: 15px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #2c3e50;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    form input:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+
+    button[type="submit"] {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 15px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+
+    .success-message {
+        color: #27ae60;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    .button-container {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .button-container a button {
+        padding: 12px 25px;
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    .button-container a button:hover {
+        background-color: #27ae60;
+    }
+
+    .errorlist {
+        color: #e74c3c;
+        list-style-type: none;
+        padding: 0;
+        margin: 5px 0;
+        font-size: 14px;
+    }
+</style>
+
+{% endblock %}

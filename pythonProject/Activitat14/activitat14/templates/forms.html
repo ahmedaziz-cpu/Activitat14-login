@@ -1,0 +1,145 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h1>Formulari</h1>
+
+    <form action="" method="POST" class="form-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="submit-button" value="Enviar">
+    </form>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /*  título */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+
+        /* contenedor del formulario */
+        .form-container {
+            width: 100%;
+            max-width: 550px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /*  campos del formulario */
+        .form-container p {
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container textarea,
+        .form-container select {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border: 1px solid #dcdfe6;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            background-color: #f9fafc;
+        }
+
+        .form-container input:focus,
+        .form-container textarea:focus,
+        .form-container select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+            outline: none;
+            background-color: #fff;
+        }
+
+        /*  botón de envío */
+        .form-container input[type="submit"],
+        .submit-button {
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .form-container input[type="submit"]:hover,
+        .submit-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input[type="submit"]:active,
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        /*  mensajes de error */
+        .errorlist {
+            color: #e74c3c;
+            list-style-type: none;
+            padding: 0;
+            margin: 4px 0 8px;
+            font-size: 14px;
+        }
+
+        /*  campos requeridos */
+        .form-container .required label:after {
+            content: " *";
+            color: #e74c3c;
+        }
+
+        /* Responsividad */
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+{% endblock %}

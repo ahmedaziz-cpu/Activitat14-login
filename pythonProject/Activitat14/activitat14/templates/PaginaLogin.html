@@ -1,0 +1,57 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+
+<body>
+    <div class="container">
+       <h1>¡Bienvenido {{ usuario.nombre }} {{ usuario.apellido }}!</h1>
+        <p>Has iniciado sesión correctamente.</p>
+{#        <a href="login.html" class="button">Cerrar Sesión</a>#}
+        <img src="https://m.media-amazon.com/images/I/91Saf4pZZmL._AC_UF1000,1000_QL80_.jpg" alt="img"> <br><br>
+        <a href="{% url 'logout' %}" class="button">Cerrar Sesión</a>
+    </div>
+</body>
+
+
+<style>
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+    h1 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+</style>
+{% endblock %}
